@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Tone from "tone"
+import GridWrapper from "./GridWrapper"
 import {Button} from "semantic-ui-react"
 
 class App extends Component {
@@ -11,7 +12,7 @@ class App extends Component {
   }
 
   handleClick = () => {
-    var synth = new Tone.MonoSynth();
+    var synth = new Tone.Synth();
     synth.toMaster();
     var pattern = new Tone.Pattern((time, note) => {
 	                 synth.triggerAttackRelease(note, 0.25);
@@ -28,6 +29,7 @@ class App extends Component {
         <Button onClick={this.handleClick} style={this.btnStyle}>
           hey
         </Button>
+        <GridWrapper />
 
       </div>
     );
